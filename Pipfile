@@ -1,0 +1,19 @@
+[[source]]
+url = "https://pypi.org/simple"
+verify_ssl = true
+name = "pypi"
+
+[packages]
+pdf2image = "==1.14.0"
+pillow = "*"
+tqdm = "*"
+pydub = "*"
+websocket-client = "==0.56.0"
+arrow = "*"
+autopep8 = "*"
+requests = "*"
+retrying = "*"
+typing-extensions = "*"
+cryptography = "*"
+
+[requires]
