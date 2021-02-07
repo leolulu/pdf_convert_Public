@@ -49,7 +49,6 @@ def ocr_high_precision(folder_path):
     ocr_txt_path = os.path.join(os.path.dirname(folder_path), f'{os.path.basename(folder_path)}_ocr_result.txt')
     idx = 0
     btime = time.time()
-    print('开始请求OCR了...')
     while idx < len(pic_path_list):
         ocr_result = get_ocr_reslut(pic_path_list[idx])
         if isinstance(ocr_result, OCRError):
@@ -62,7 +61,7 @@ def ocr_high_precision(folder_path):
             f.write(ocr_result + '\n')
         idx += 1
         minutes_left = ((time.time()-btime)/((idx+1)/len(pic_path_list)))/60
-        print(f"处理了第{idx+1}张，总共{len(pic_path_list)}张，还需要{round(minutes_left,1)}分钟...")
+        print(f"处理了第{idx}张，总共{len(pic_path_list)}张，还需要{round(minutes_left,1)}分钟...")
     return ocr_txt_path
 
 
