@@ -60,7 +60,7 @@ def ocr_high_precision(folder_path):
         with open(ocr_txt_path, 'a', encoding='utf-8') as f:
             f.write(ocr_result + '\n')
         idx += 1
-        minutes_left = ((time.time()-btime)/((idx+1)/len(pic_path_list)))/60
+        minutes_left = (((time.time()-btime)/((idx+1)/len(pic_path_list)))-(time.time()-btime))/60
         print(f"处理了第{idx}张，总共{len(pic_path_list)}张，还需要{round(minutes_left,1)}分钟...")
     return ocr_txt_path
 
