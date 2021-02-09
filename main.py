@@ -2,7 +2,6 @@ from scripts.pdf抽取图片 import pdf_extract
 from scripts.pic图片切割 import pic_cut
 from scripts.tts_ws_python3 import tts_run_total
 from scripts.audio_convert import wav2mp3_whole_folder_convert_with_file_move, mp3tomp4
-from scripts.cancat_audio import cancat_audio
 from scripts.txt文本切分 import txt_cut
 from constants.common import CommonConstants
 import os
@@ -40,6 +39,7 @@ def ensemble_run(pdf_path, output_mp4: bool, margin_top=0, margin_bottom=0, cut_
         print('开始转换音频...')
         wav2mp3_whole_folder_convert_with_file_move(audio_folder_path)
         print('开始合并音频...')
+        from scripts.cancat_audio import cancat_audio
         cancat_folder_path = cancat_audio(audio_folder_path, 4)
         if output_mp4:
             print('把合并后的mp3转为mp4...')
