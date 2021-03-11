@@ -8,6 +8,9 @@ def pic_cut(folder_path, margin_top, margin_bottom):
     pic_file_list = [os.path.join(folder_path, i) for i in os.listdir(folder_path)]
 
     for pic_path in tqdm(pic_file_list):
+        if os.path.basename(pic_path) == 'Thumbs.db':
+            os.remove(pic_path)
+            continue
         img = Image.open(pic_path)
         img = img.crop((0, margin_top, img.size[0], img.size[1] if margin_bottom == 0 else margin_bottom))  # [左] [上] [右(img.save[0])] [下(img.save(1))]
         img.save(pic_path)
